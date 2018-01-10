@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="progmasters-demo">
+
+    <parameter name="browser" value="chrome"/>
+
+    <test name="ExampleTest">
+
+        <classes>
+            <!--<class name="examples.GoogleTest"/>-->
+            <class name="examples.PhpTravelsTest"/>
+        </classes>
+    </test>
+
+</suite>
