@@ -1,6 +1,5 @@
 package page_objects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utils.Page;
 
@@ -23,7 +22,7 @@ public class PhpTravelsPage extends Page {
     }
 
     public void navigateToPage(PhpTravelsLinks link) {
-        driver.findElement(By.cssSelector("[href='" + link.getHref() + "']")).click();
+        driver.findElement(link.getBy()).click();
 
         switchToNextWindow(driver);
     }

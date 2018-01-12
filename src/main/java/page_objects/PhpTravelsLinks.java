@@ -1,17 +1,19 @@
 package page_objects;
 
+import org.openqa.selenium.By;
+
 public enum PhpTravelsLinks {
-    Customer("//www.phptravels.net"),
-    Administrator("//www.phptravels.net/admin"),
-    Supplier("//www.phptravels.net/supplier");
+    Customer(By.cssSelector("[href='//www.phptravels.net']")),
+    Administrator(By.cssSelector("[href='//www.phptravels.net/admin']")),
+    Supplier(By.cssSelector("[href='//www.phptravels.net/supplier']"));
 
-    private String href;
+    private By by;
 
-    PhpTravelsLinks(String href) {
-        this.href = href;
+    PhpTravelsLinks(By by) {
+        this.by = by;
     }
 
-    public String getHref() {
-        return href;
+    public By getBy() {
+        return by;
     }
 }
