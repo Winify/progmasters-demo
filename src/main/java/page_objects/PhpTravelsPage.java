@@ -22,7 +22,7 @@ public class PhpTravelsPage extends Page {
 
     }
 
-    public void navigateToPage(WebDriver driver, PhpTravelsLinks link) {
+    public void navigateToPage(PhpTravelsLinks link) {
         driver.findElement(By.cssSelector("[href='" + link.getHref() + "']")).click();
 
         switchToNextWindow(driver);

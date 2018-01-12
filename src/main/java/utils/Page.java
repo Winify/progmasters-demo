@@ -7,7 +7,10 @@ import java.util.Set;
 
 public class Page {
 
+    protected final WebDriver driver;
+
     protected Page(WebDriver driver) {
+        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 

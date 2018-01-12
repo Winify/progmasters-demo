@@ -35,7 +35,7 @@ public class PhpTravelsTest extends TestUtils {
     @Test
     public void testCustomerPage() {
         System.out.println("TEST - Általános felhasználói oldalra lépés");
-        page.navigateToPage(driver, PhpTravelsLinks.Customer);
+        page.navigateToPage(PhpTravelsLinks.Customer);
 
         System.out.println("ASSERT - Oldal url ellenőrzése");
         assertEquals(driver.getCurrentUrl(), "http://www.phptravels.net/");
@@ -45,7 +45,7 @@ public class PhpTravelsTest extends TestUtils {
     @Test
     public void testAdministratorPage() {
         System.out.println("TEST - Adminisztrátor felhasználói oldalra lépés");
-        page.navigateToPage(driver, PhpTravelsLinks.Administrator);
+        page.navigateToPage(PhpTravelsLinks.Administrator);
 
         System.out.println("ASSERT - Oldal url ellenőrzése");
         assertEquals(driver.getCurrentUrl(), "http://www.phptravels.net/admin");
@@ -55,7 +55,7 @@ public class PhpTravelsTest extends TestUtils {
     @Test
     public void testSupplierPage() {
         System.out.println("TEST - Támogatói felhasználói oldalra lépés");
-        page.navigateToPage(driver, PhpTravelsLinks.Supplier);
+        page.navigateToPage(PhpTravelsLinks.Supplier);
 
         System.out.println("ASSERT - Oldal url ellenőrzése");
         assertEquals(driver.getCurrentUrl(), "http://www.phptravels.net/supplier");
