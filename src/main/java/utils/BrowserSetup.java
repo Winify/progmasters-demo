@@ -5,31 +5,53 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.function.Supplier;
+
 public class BrowserSetup {
 
+    private enum BrowserType {
+        FF("firefox", WebDriverManager.firefoxdriver(), FirefoxDriver::new),
+        CHROME("chrome", WebDriverManager.chromedriver(), ChromeDriver::new),
+        INVALID;
 
-    public static WebDriver getLocalDriver(String browserType) {
-        WebDriver driver;
+        private String browserCode;
+        private WebDriverManager driverManager;
+        private Supplier<WebDriver> driverSupplier;
 
-        switch (browserType) {
-            case "chrome":
-                WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
-                break;
-
-            case "firefox":
-                WebDriverManager.firefoxdriver().setup();
-                driver = new FirefoxDriver();
-                break;
-
-            default:
-                System.err.println("Browser [" + browserType + "] is invalid, Launching Chrome as browser of choice...");
-
-                WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
-                break;
+        BrowserType() {
+            this(null, WebDriverManager.chromedriver(), ChromeDriver::new);
         }
 
-        return driver;
+        BrowserType(String browserCode, WebDriverManager driverManager, Supplier<WebDriver> driverSupplier) {
+            this.browserCode = browserCode;
+            this.driverManager = driverManager;
+            this.driverSupplier = driverSupplier;
+        }
+
+        public WebDriverManager getDriverManager() {
+            return driverManager;
+        }
+
+        public WebDriver toDriver() {
+            return driverSupplier.get();
+        }
+
+        public static BrowserType fromCode(String browserCode) {
+            for (BrowserType type : values()) {
+                if (browserCode.equals(type.browserCode)) {
+                    return type;
+                }
+            }
+
+            return INVALID;
+        }
+    }
+
+    public static WebDriver getLocalDriver(String browserTypeCode) {
+
+        BrowserType browserType = BrowserType.fromCode(browserTypeCode);
+        browserType.getDriverManager().setup();
+
+        return browserType.toDriver();
     }
 }
