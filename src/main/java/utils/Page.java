@@ -5,7 +5,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.Set;
 
-public class Page {
+public abstract class Page {
 
     protected final WebDriver driver;
 
