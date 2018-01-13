@@ -1,6 +1,8 @@
 package examples;
 
 import org.testng.annotations.*;
+import page_objects.AdministratorPage;
+import page_objects.CustomerPage;
 import page_objects.PhpTravelsLinks;
 import page_objects.PhpTravelsPage;
 import utils.TestUtils;
@@ -35,7 +37,9 @@ public class PhpTravelsTest extends TestUtils {
     @Test
     public void testCustomerPage() {
         System.out.println("TEST - Általános felhasználói oldalra lépés");
-        page.navigateToPage(PhpTravelsLinks.Customer);
+        CustomerPage customerPage = (CustomerPage) page.navigateToPage(PhpTravelsLinks.CustomerLink);
+
+        customerPage.loginField.click();
 
         System.out.println("ASSERT - Oldal url ellenőrzése");
         assertEquals(driver.getCurrentUrl(), "http://www.phptravels.net/");
@@ -45,7 +49,7 @@ public class PhpTravelsTest extends TestUtils {
     @Test
     public void testAdministratorPage() {
         System.out.println("TEST - Adminisztrátor felhasználói oldalra lépés");
-        page.navigateToPage(PhpTravelsLinks.Administrator);
+        AdministratorPage administratorPage = (AdministratorPage) page.navigateToPage(PhpTravelsLinks.AdministratorLink);
 
         System.out.println("ASSERT - Oldal url ellenőrzése");
         assertEquals(driver.getCurrentUrl(), "http://www.phptravels.net/admin");
@@ -55,7 +59,7 @@ public class PhpTravelsTest extends TestUtils {
     @Test
     public void testSupplierPage() {
         System.out.println("TEST - Támogatói felhasználói oldalra lépés");
-        page.navigateToPage(PhpTravelsLinks.Supplier);
+        page.navigateToPage(PhpTravelsLinks.SupplierLink);
 
         System.out.println("ASSERT - Oldal url ellenőrzése");
         assertEquals(driver.getCurrentUrl(), "http://www.phptravels.net/supplier");

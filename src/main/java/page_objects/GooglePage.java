@@ -3,11 +3,11 @@ package page_objects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import utils.Page;
+import utils.AbstractPage;
 
 import static org.testng.Assert.assertEquals;
 
-public class GooglePage extends Page {
+public class GooglePage extends AbstractPage {
 
     @FindBy(name = "q")
     private WebElement searchBar;
