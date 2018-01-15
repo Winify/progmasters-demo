@@ -9,7 +9,8 @@
 
         <classes>
             <!--<class name="examples.GoogleTest"/>-->
-            <class name="examples.PhpTravelsTest"/>
+            <!--<class name="examples.PhpTravelsTest"/>-->
+            <class name="progmasters.PhpTravelsLoginTest"/>
         </classes>
     </test>
 
