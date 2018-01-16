@@ -21,11 +21,12 @@ public class PhpTravelsPage extends AbstractPage {
 
     }
 
-    public AbstractPage navigateToPage(PhpTravelsLinks link) {
+    public <T extends AbstractPage> T navigateToPage(PhpTravelsLinks link) {
 
         driver.findElement(link.getBy()).click();
         switchToNextWindow(driver);
 
-        return link.toPageFactory(driver);
+        //noinspection unchecked
+        return (T) link.toPageFactory(driver);
     }
 }

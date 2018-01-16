@@ -37,7 +37,7 @@ public class PhpTravelsTest extends TestUtils {
     @Test
     public void testCustomerPage() {
         System.out.println("TEST - Általános felhasználói oldalra lépés");
-        CustomerPage customerPage = (CustomerPage) page.navigateToPage(PhpTravelsLinks.CustomerLink);
+        CustomerPage customerPage = page.navigateToPage(PhpTravelsLinks.CustomerLink);
 
         customerPage.loginField.click();
 
