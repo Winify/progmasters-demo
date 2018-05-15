@@ -1,7 +1,5 @@
 package progmasters;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptException;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
